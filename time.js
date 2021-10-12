@@ -1,5 +1,5 @@
-/* 
-simple clock
+/**
+ *! simple clock
 let a;
 let time;
 let date;
@@ -10,10 +10,9 @@ setInterval(() => {
     date = a.toLocaleDateString(undefined, options);
     document.getElementById('time').innerHTML = date + '<br>' + time;
 }, 1000);
-*/
+**/
 
-// better clock 
-setInterval(showTime, 1000);
+// better clock
 function showTime() {
     let time = new Date();
     let hour = time.getHours();
@@ -26,7 +25,7 @@ function showTime() {
         am_pm = "PM";
     }
     if (hour == 0) {
-        hr = 12;
+        hour = 12;
         am_pm = "AM";
     }
 
@@ -34,11 +33,16 @@ function showTime() {
     min = min < 10 ? "0" + min : min;
     sec = sec < 10 ? "0" + sec : sec;
 
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    };
     date = time.toLocaleDateString(undefined, options);
 
-    let currentTime = date + '<br>' + hour + ":" + min + ":" + sec + " " + am_pm;
+    let currentTime = `${date}<br>${hour}:${min}:${sec} ${am_pm}`;
 
     document.getElementById("time").innerHTML = currentTime;
 }
-showTime();
+setInterval(showTime, 1000);
