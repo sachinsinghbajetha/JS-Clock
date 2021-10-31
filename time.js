@@ -28,7 +28,7 @@ function showTime() {
         hour = 12;
         am_pm = "AM";
     }
-
+	
     hour = hour < 10 ? "0" + hour : hour;
     min = min < 10 ? "0" + min : min;
     sec = sec < 10 ? "0" + sec : sec;
@@ -39,6 +39,7 @@ function showTime() {
         month: "long",
         day: "numeric",
     };
+	
     date = time.toLocaleDateString(undefined, options);
 
     let currentTime = `${date}<br>${hour}:${min}:${sec} ${am_pm}`;
